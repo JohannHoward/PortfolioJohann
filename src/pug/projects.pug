@@ -1,0 +1,73 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title Portfolio
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='assets/icon.png')
+
+        include includes/css.pug
+
+    body.d-flex.flex-column.h-100.bg-light
+
+        main.flex-shrink-0
+
+            // Navigation
+            include includes/navbar.pug
+
+            // Projects Section
+            section.py-5
+                .container.px-5.mb-5
+                    .text-center.mb-5
+                        h1.display-5.fw-bolder.mb-0
+                            span.text-gradient.d-inline Expériences
+                    .row.gx-5.justify-content-center
+
+                        .col-lg-11.col-xl-9.col-xxl-8
+
+
+                            // Experience Card 1
+                            .card.shadow.border-0.rounded-4.mb-5
+                                .card-body.p-5
+                                    .row.align-items-center.gx-5
+                                        .col.text-center.text-lg-start.mb-4.mb-lg-0
+                                            .bg-light.p-4.rounded-4
+                                                .text-primary.fw-bolder.mb-2 2025 - Present
+                                                .small.fw-bolder Intégrateur de zoho (CRM, Books, Flow,...)
+                                                .small.text-muted Upwork
+                                                .small.text-muted Freelance
+                                        .col-lg-8
+                                            div En tant qu'intégrateur Zoho, j'ai l'opportunité de travailler sur des projets passionnants impliquant la suite Zoho. Que ce soit le CRM, Zoho Books ou Zoho Flow, je mets mes compétences à contribution pour aider mes clients à optimiser leurs processus métier. Chaque mission représente un défi unique où je dois concevoir des solutions sur-mesure. Au-delà des aspects techniques, j'apprécie particulièrement l'aspect consultatif de mon rôle. Travailler sur Upwork me permet de développer une expertise pointue dans l'intégration des produits Zoho. Je suis fier d'offrir à mes clients un niveau d'expertise élevé, couplé à une approche personnalisée.
+
+                            // Experience Card 2
+                            .card.shadow.border-0.rounded-4.mb-5
+                                .card-body.p-5
+                                    .row.align-items-center.gx-5
+                                        .col.text-center.text-lg-start.mb-4.mb-lg-0
+                                            .bg-light.p-4.rounded-4
+                                                .text-primary.fw-bolder.mb-2 2024
+                                                .small.fw-bolder Fullstack Developpeur web
+                                                .small.text-muted MESUPRES
+                                                .small.text-muted Antananarivo, Fiadanana
+                                        .col-lg-8
+                                            div Embarquer dans un Voyage Passionnant de Développement Web. Lorsque j'ai décroché ce stage, j'ai ressenti une vague d'excitation. L'opportunité de mettre mes compétences en Symfony, JavaScript et Tailwind CSS au service d'un projet de gestion RH était captivante. Dès le premier jour, j'ai été plongé dans un environnement stimulant, entouré d'une équipe dévouée. Chaque matin, je me suis réveillé avec l'enthousiasme de relever de nouvelles tâches. Mon rôle m'a permis d'explorer les moindres recoins du framework Symfony, déployant ses fonctionnalités pour créer une interface intuitive. C'était grisant de voir notre travail se concrétiser sous les yeux des utilisateurs. Une expérience professionnelle exceptionnelle, riche en apprentissages.
+
+
+            // Call to action section
+            section.py-5.bg-gradient-primary-to-secondary.text-white
+                .container.px-5.my-5
+                    .text-center
+                        h2.display-4.fw-bolder.mb-4 Let's build something together
+                        a.btn.btn-outline-light.btn-lg.px-5.py-3.fs-6.fw-bolder(href='contact.html') Contact me
+
+        // Footer
+        include includes/footer.pug
+
+        include includes/scripts.pug

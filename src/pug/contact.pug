@@ -1,0 +1,93 @@
+doctype html
+html(lang='en')
+
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content)
+        meta(name='author', content)
+        title Portfolio
+        link(rel='icon', type='image/x-icon', href='assets/icon.png')
+        include includes/css.pug
+
+    body.d-flex.flex-column
+        main.flex-shrink-0
+            include includes/navbar.pug
+
+            section.py-5
+                .container.px-5
+                    .bg-light.rounded-4.py-5.px-4.px-md-5
+                        .text-center.mb-5
+                            .feature.bg-primary.bg-gradient-primary-to-secondary.text-white.rounded-3.mb-3
+                                i.bi.bi-envelope
+                            h1.fw-bolder Entrer en contact
+                            p.lead.fw-normal.text-muted.mb-0 Travaillons ensembles!
+                        .row.gx-5.justify-content-center
+                            .col-lg-8.col-xl-6
+                                form#contactForm(onSubmit='sendEmail(event)')
+                                    .form-floating.mb-3
+                                        input#name.form-control(
+                                            type='text',
+                                            name='from_name',
+                                            placeholder='Votre nom',
+                                            required
+                                        )
+                                        label(for='name') Nom complet
+                                        .invalid-feedback Ce champ est obligatoire!
+
+                                    .form-floating.mb-3
+                                        input#email.form-control(
+                                            type='email',
+                                            name='reply_to',
+                                            placeholder='Votre email',
+                                            required
+                                        )
+                                        label(for='email') Adresse email
+                                        .invalid-feedback Ce champ est obligatoire!
+
+                                    .form-floating.mb-3
+                                        textarea#message.form-control(
+                                            name='message',
+                                            placeholder='Votre message',
+                                            style='height: 10rem;',
+                                            required
+                                        )
+                                        label(for='message') Message
+                                        .invalid-feedback Ce champ est obligatoire!
+
+                                    .d-grid
+                                        button#submitButton.btn.btn-primary.btn-lg(type='submit') Envoyer
+
+                                    #submitSuccessMessage.d-none
+                                        .text-center.mb-3
+                                            .fw-bolder Votre message a été envoyé!
+                                            | Merci de nous avoir contactés.
+
+                                    #submitErrorMessage.d-none
+                                        .text-center.text-danger.mb-3 Erreur lors de l'envoi!
+
+        include includes/footer.pug
+        include includes/scripts.pug
+
+        script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')
+        script(src='https://cdn.emailjs.com/dist/email.min.js')
+        script.
+            (function(){
+                emailjs.init("YOUR_USER_ID"); 
+            })();
+
+            function sendEmail(event) {
+                event.preventDefault();
+                const form = document.getElementById('contactForm'); 
+                emailjs.sendForm('service_21ja0mo', 'template_079c7eb', form, '1b83YRUh0kP0QGBsd')
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        document.getElementById('submitSuccessMessage').classList.remove('d-none');
+                        document.getElementById('submitErrorMessage').classList.add('d-none');
+                        form.reset(); // Réinitialisation du formulaire
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        document.getElementById('submitErrorMessage').classList.remove('d-none');
+                        document.getElementById('submitSuccessMessage').classList.add('d-none');
+                    });
+            }
